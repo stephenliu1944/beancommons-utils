@@ -15,7 +15,7 @@ export default [rollupMerge(base(umdName), {
         name: libraryName
     },
     plugins: [
-        uglify()
+        // uglify()
     ]
 }), rollupMerge(base(cjsName), {
     output: {
