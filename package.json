@@ -1,9 +1,11 @@
 {
   "name": "@beanutils/common",
-  "version": "0.1.7",
+  "version": "0.1.9",
   "description": "js common utils",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
+  "browser": "dist/index.umd.js",
+  "libraryName": "Common",
   "license": "MIT",
   "author": "Stephen Liu",
   "repository": {
