@@ -6,9 +6,18 @@ const BUILD_PATH = process.env.BUILD_PATH || 'build';
 var { main, module, browser, libraryName } = pkg;
 var cjsName = main.split('/')[1];
 var esmName = module.split('/')[1];
-// var umdName = browser.split('/')[1];
+var umdName = browser.split('/')[1];
 
-export default [rollupMerge(base(cjsName), {
+export default [rollupMerge(base(umdName), {
+    output: {
+        file: `${BUILD_PATH}/${umdName}`,
+        format: 'umd',
+        name: libraryName
+    },
+    plugins: [
+        uglify()	                     // TODO: 压缩 format:es 格式时要报错, minify, but only in production
+    ]
+}), rollupMerge(base(cjsName), {
     output: {
         file: `${BUILD_PATH}/${cjsName}`,
         format: 'cjs'
@@ -18,13 +27,4 @@ export default [rollupMerge(base(cjsName), {
         file: `${BUILD_PATH}/${esmName}`,
         format: 'es'
     }
-// }), rollupMerge(base(umdName), {
-//     output: {
-//         file: `${BUILD_PATH}/${umdName}`,
-//         format: 'umd',
-//         name: libraryName
-//     },
-//     plugins: [
-//         uglify()	                     // TODO: 压缩 format:es 格式时要报错, minify, but only in production
-//     ]
 })];
