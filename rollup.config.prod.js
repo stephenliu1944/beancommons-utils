@@ -6,7 +6,7 @@ const BUILD_PATH = process.env.BUILD_PATH || 'build';
 var { main, module, browser, libraryName } = pkg;
 var cjsName = main.split('/')[1];
 var esmName = module.split('/')[1];
-var umdName = browser.split('/')[1];
+// var umdName = browser.split('/')[1];
 
 export default [rollupMerge(base(cjsName), {
     output: {
