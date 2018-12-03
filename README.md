@@ -8,29 +8,39 @@ npm install --save @beanutils/common
 
 ## Usage
 ```
-import { isEmpty } from '@beanutils/common';
-isEmpty(xxx);
+import { isArray, isEmpty, isBlank } from '@beanutils/common';
+
+isEmpty(null);          // true
+isEmpty(NaN);           // true
+isEmpty({});            // true
+isEmpty([]);            // true
+isEmpty('  ');          // false
+isBlank('  ');          // true
+isArray({})             // false
 ```
+
+## API
 ```
-// 判断是否为Array类型
+// checks if object is Array type.
 export function isArray(obj) 
-// 判断是否为String类型
+// checks if object is String type.
 export function isString(obj) 
-// 判断是否为Date类型
+// checks if object is Data type.
 export function isDate(obj) 
-// 判断是否为Object类型
+// checks if object is Object type.
 export function isObject(obj) 
-// 判断是否为Number类型
+// checks if object is Number type.
 export function isNumber(obj) 
-// 判断是否为forma数据
+// checks if object is FormData type.
 export function isFormData(obj)
-// 判断是否为IE浏览器
+// checks if browser is IE.
 export function isIE()
-// 判断是否为空对象, 包括null, undefined, NaN, '', [], {}
+// checks if object is empty, includes null, undefined, NaN, '', [] and {}, excludes '  ', [1, 2, 3], {name: 'bean'} etc.
 export function isEmpty(obj) 
-// 判断是否不为空对象
+// checks if object is not empty.
 export function isNotEmpty(obj) 
-// 判断是否为空字符串, 包括只有空格的情况
+// checks if string is blank, include all of isEmpty() and '   '.
 export function isBlank(str) 
-// 判断是否不为空字符串
+// checks if string is not blank.
 export function isNotBlank(obj) 
+```
