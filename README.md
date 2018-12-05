@@ -1,14 +1,14 @@
-# @beanutils/common
-common js lib
+# @beancommons/utils
+Common js libs.
 
 ## Install
 ```
-npm install --save @beanutils/common
+npm install --save @beancommons/utils
 ```
 
 ## Usage
 ```
-import { isArray, isEmpty, isBlank } from '@beanutils/common';
+import { isArray, isEmpty, isBlank } from '@beancommons/utils';
 
 isEmpty(null);          // true
 isEmpty(NaN);           // true
